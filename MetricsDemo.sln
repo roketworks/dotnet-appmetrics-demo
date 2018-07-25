@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{DD0526F5-7B5E-45ED-8776-69EADC0C39D0}"
 ProjectSection(SolutionItems) = preProject
 	docker-compose.yml = docker-compose.yml
+	prometheus.yml = prometheus.yml
 EndProjectSection
 EndProject
 Global

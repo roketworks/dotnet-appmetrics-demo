@@ -11,7 +11,7 @@ services:
   prometheus: 
     image: prom/prometheus
     volumes:
-      - /tmp/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
   grafana: 

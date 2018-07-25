@@ -1,0 +1,6 @@
+scrape_configs: 
+  - job_name: 'appmetrics'
+    scrape_interval: 5s   
+    metrics_path: /metrics-text
+    static_configs:
+      - targets: ['app:80'] #change this to your hostname, defaults to '/metrics'

@@ -1,7 +1,6 @@
 ﻿using System;
 using App.Metrics;
 using App.Metrics.Extensions.Configuration;
-using App.Metrics.Extensions.DependencyInjection;
 using App.Metrics.Formatters;
 using App.Metrics.Formatters.Prometheus;
 using Microsoft.AspNetCore.Builder;
@@ -22,7 +21,6 @@ namespace Web.Api
                 .Configuration.ReadFrom(Configuration)
                 .OutputMetrics.AsPrometheusPlainText()
                 .OutputMetrics.AsPrometheusProtobuf()
-                .Report.ToConsole(TimeSpan.FromSeconds(2))
                 .Build();
         }
 
@@ -47,7 +45,8 @@ namespace Web.Api
             app.UseMetricsAllMiddleware();
             app.UseMetricsEndpoint(Metrics.OutputMetricsFormatters.GetType<MetricsPrometheusProtobufOutputFormatter>());
             app.UseMetricsTextEndpoint(Metrics.OutputMetricsFormatters.GetType<MetricsPrometheusTextOutputFormatter>());
-
+            app.UseEnvInfoEndpoint();
+            
             app.UseMvc();
         }
     }
